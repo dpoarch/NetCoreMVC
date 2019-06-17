@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Asp.netCoreMVCCRUD.Models.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h4>Employee Register</h4>
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.position)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.location)
+            </th>
+
+            <th>
+            <a asp-action="AddOrEdit" class="btn btn-outline-success"><i class="far fa-plus-square">Employee</i></a>
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.position)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.location)
+            </td>
+            <td>
+                <a asp-action="AddOrEdit" asp-route-id="@item.Id"><i class="fa fa-marker fa-lg">Edit</i></a> 
+                <a asp-action="Delete" asp-route-id="@item.Id" class="fa fa-danger ml-1" onclick="return confirm('Are you sure to delete this record?')"><i class="fa fa-trash fa-lg">Delete</i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

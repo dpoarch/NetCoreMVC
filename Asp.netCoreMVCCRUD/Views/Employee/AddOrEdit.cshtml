@@ -1,0 +1,54 @@
+﻿@model Asp.netCoreMVCCRUD.Models.Employee
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+<h4>Employee Form</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="AddOrEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="name" class="control-label"></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="code" class="control-label"></label>
+                    <input asp-for="code" class="form-control" />
+                    <span asp-validation-for="code" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="position" class="control-label"></label>
+                    <input asp-for="position" class="form-control" />
+                    <span asp-validation-for="position" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="location" class="control-label"></label>
+                <input asp-for="location" class="form-control" />
+                <span asp-validation-for="location" class="text-danger"></span>
+            </div>
+            <div class="form-row`1">
+                <div class="form-group col-md-6">
+                    <input type="submit" value="Submit" class="btn btn-primary btn-block" />
+                </div>
+                <div class="form-group col-md-6">
+                    <a asp-action="Index" class="btn btn-secondary btn-block"><i class="fa fa-table">Back to List</i></a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
